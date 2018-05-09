@@ -4,7 +4,7 @@
     <!-- Header -->
     <div class="header">
       <router-link :to="`/`">
-        <img src="../assets/logo.png" alt="logo" class="logo">
+        <img src="@/assets/logo.svg" alt="logo" class="logo">
       </router-link>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSdhkzp_cKi2lL_jSFrQ1TlTK_6LlE8APTdRbYt9yZrljkHsqA/viewform" target="_blank" class="link add-reason">
         Got a creative reason ? Share with us !
@@ -55,7 +55,7 @@
   Vue.use(VueClipboard);
 
   export default {
-    name: 'HelloWorld',
+    name: 'Home',
     data() {
       return {
         reasons: [],
@@ -136,7 +136,6 @@
   };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
   @import './styles/home.scss';
 </style>
