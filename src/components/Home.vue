@@ -15,7 +15,7 @@
     <!-- Main content -->
     <div class="main-content">
       <div class="msg-box">
-        <span id="msg">{{reasons[random] && reasons[random].text}}</span>
+        <span id="msg" v-clipboard:copy="reasons[random] && reasons[random].text" v-clipboard:success="onCopy">{{reasons[random] && reasons[random].text}}</span>
       </div>
       <div class="copy-text" v-clipboard:copy="reasons[random] && reasons[random].text" v-clipboard:success="onCopy">
         <span v-if="copied">Copied!</span>
