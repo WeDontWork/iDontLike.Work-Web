@@ -22,7 +22,7 @@
         <span v-else>Click to copy text</span>
       </div>
       <button class="white-btn" @click="getNewReason">Show me another reason</button>
-      <a href="#" class="link add-reason2">Got a creative reason? Share with us !</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdhkzp_cKi2lL_jSFrQ1TlTK_6LlE8APTdRbYt9yZrljkHsqA/viewform" target="_blank" class="link add-reason2">Got a creative reason? Share with us !</a>
     </div>
     <!-- Main content end -->
 
