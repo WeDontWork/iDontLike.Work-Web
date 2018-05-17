@@ -1,6 +1,6 @@
 .bookmark-content {
   text-align: center;
-  margin-top: 22vh;
+  margin-top: 14vh;
   color: white;
   .hd1 {
     font-size: 100px;
@@ -43,8 +43,26 @@
 
 .smile {
   margin: 0 auto;
-  margin-top: 5%;
+  margin-top: 3%;
   width: 150px;
+}
+
+.white-btn {
+  background: white;
+  border-radius: 3px;
+  border: 0;
+  color: var(--main-bg-color);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 300;
+  margin-top: 50px;
+  min-width: 20%;
+  outline: none;
+  padding: 12px 20px;
+  transition: 0.17s all ease-in-out;
+  &:active {
+    box-shadow: inset 0px 0px 2px 0px #787878;
+  }
 }
 
 $button-bg: #ffffff;

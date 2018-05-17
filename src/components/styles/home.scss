@@ -13,19 +13,29 @@
 
   .link {
     color: white;
-    text-decoration: none;
     font-weight: 300;
+    padding: 10px;
     text-align: right;
+    text-decoration: none;
   }
 }
 
 .main-content {
   margin-top: 10%;
   text-align: center;
+  .title1 {
+    color: white;
+    font-size: 25px;
+    font-weight: 300;
+    line-height: 2;
+    padding: 40px 20px;
+    border: 2px solid transparent;
+  }
   .msg-box {
     align-items: center;
     border-radius: 3px;
     border: 2px dashed rgba(0, 0, 0, 0.2);
+    cursor: pointer;
     display: flex;
     height: 60px;
     justify-content: center;
@@ -36,7 +46,6 @@
     width: 100%;
     span {
       color: white;
-      cursor: pointer;
       font-size: 25px;
       font-weight: 300;
     }
@@ -105,6 +114,40 @@
     margin-right: 10px;
     cursor: pointer;
   }
+  .gass {
+    display: inline-block;
+    position: relative;
+  }
+  .ga-logo:hover + .tooltip {
+    display: block;
+  }
+  .tooltip {
+    background: white;
+    border-radius: 3px;
+    bottom: 65px;
+    font-size: 15px;
+    font-weight: 300;
+    left: -85px;
+    padding: 10px 10px 30px 10px;
+    position: absolute;
+    width: 350px;
+    display: none;
+    transition: 0.2s all ease-in-out;
+    &:after {
+      top: 100%;
+      left: 50%;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-color: rgba(255, 255, 255, 0);
+      border-top-color: #ffffff;
+      border-width: 10px;
+      margin-left: -20px;
+    }
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -135,6 +178,9 @@
     .white-btn {
       font-size: 18px;
       margin-top: 30px;
+    }
+    .title1 {
+      font-size: 20px;
     }
   }
   .footer {

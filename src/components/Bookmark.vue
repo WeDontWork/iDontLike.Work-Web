@@ -26,6 +26,10 @@
         <div class="desc2">
           Hope you have bookmarked our website for future.
         </div>
+        <router-link :to="`/`" tag="button" class="white-btn">
+          Ok Cool!
+        </router-link>
+        <br>
         <img src="@/assets/mouth.svg" alt="arrow" class="smile">
       </div>
     </div>

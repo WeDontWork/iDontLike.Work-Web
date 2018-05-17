@@ -3,26 +3,38 @@
 
     <!-- Header -->
     <div class="header">
-      <router-link :to="`/`">
-        <img src="@/assets/logo.svg" alt="logo" class="logo">
-      </router-link>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdhkzp_cKi2lL_jSFrQ1TlTK_6LlE8APTdRbYt9yZrljkHsqA/viewform" target="_blank" class="link add-reason">
-        Got a creative reason ? Share with us !
-      </a>
+      <div>
+        <router-link :to="`/`">
+          <img src="@/assets/logo.svg" alt="logo" class="logo">
+        </router-link>
+      </div>
+      <div class="text-right">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdhkzp_cKi2lL_jSFrQ1TlTK_6LlE8APTdRbYt9yZrljkHsqA/viewform" target="_blank" class="link add-reason">
+          Got a creative reason ? Share with us !
+        </a>
+      </div>
     </div>
     <!-- Header end -->
 
     <!-- Main content -->
     <div class="main-content">
-      <div class="msg-box">
-        <span id="msg" v-clipboard:copy="reasons[random] && reasons[random].text" v-clipboard:success="onCopy">{{reasons[random] && reasons[random].text}}</span>
+      <div v-show="step1">
+        <div class="title1">
+          The ultimate productivity tool you have been waiting for is here!<br>Go Work From Home ;-)
+        </div>
+        <button class="white-btn" @click="showReasons">Show me a reason</button>
       </div>
-      <div class="copy-text" v-clipboard:copy="reasons[random] && reasons[random].text" v-clipboard:success="onCopy">
-        <span v-if="copied">Copied!</span>
-        <span v-else>Click to copy text</span>
+      <div v-show="step2">
+        <div class="msg-box" v-clipboard:copy="reasons[random] && reasons[random].text" v-clipboard:success="onCopy">
+          <span id="msg">{{reasons[random] && reasons[random].text}}</span>
+        </div>
+        <div class="copy-text" v-clipboard:copy="reasons[random] && reasons[random].text" v-clipboard:success="onCopy">
+          <span v-if="copied">Copied!</span>
+          <span v-else>Click to copy text</span>
+        </div>
+        <button class="white-btn" @click="getNewReason">Show me another reason</button>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdhkzp_cKi2lL_jSFrQ1TlTK_6LlE8APTdRbYt9yZrljkHsqA/viewform" target="_blank" class="link add-reason2">Got a creative reason? Share with us !</a>
       </div>
-      <button class="white-btn" @click="getNewReason">Show me another reason</button>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdhkzp_cKi2lL_jSFrQ1TlTK_6LlE8APTdRbYt9yZrljkHsqA/viewform" target="_blank" class="link add-reason2">Got a creative reason? Share with us !</a>
     </div>
     <!-- Main content end -->
 
@@ -30,10 +42,19 @@
     <div class="footer">
       <div class="left-content">
         <div class="hd1">Also experience it on</div>
-        <a href="https://play.google.com/store/apps/details?id=work.idontlike.idontlikework" target="_blank">
-          <img src="@/assets/playstore.svg" alt="playstore" class="foo-logo">
-        </a>
-        <img src="@/assets/assistance.svg" alt="gassistance" class="foo-logo">
+        <div class="gass">
+          <a href="https://play.google.com/store/apps/details?id=work.idontlike.idontlikework" target="_blank">
+            <img src="@/assets/playstore.svg" alt="playstore" class="foo-logo">
+          </a>
+          <img src="@/assets/assistance.svg" alt="gassistance" class="foo-logo ga-logo">
+          <div class="tooltip">
+            <img src="@/assets/assistance.svg" alt="gassistance" class="foo-logo">
+            <br>
+            Invoke Google Assistant on your phone or Google Home and try saying:<br><br>
+            "Ask I don’t like work"<br><br>
+            "Let me talk to I don’t like work"
+          </div>
+        </div>
       </div>
       <div></div>
       <div class="right-content">
@@ -63,6 +84,8 @@
         colorList: ['#ffab40', '#db504a', '#40A379', '#F4555D', '#3A7290', '#795548', '#607D8B', '#9CCC65', '#78586F'],
         colorNumber: 0,
         copied: false,
+        step1: true,
+        step2: false,
       };
     },
     async created() {
@@ -96,6 +119,11 @@
       },
       onCopy() {
         this.copied = true;
+      },
+      showReasons() {
+        this.step2 = true;
+        this.step1 = false;
+        this.setBgColor();
       },
       getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min)) + min;
