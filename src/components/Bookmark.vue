@@ -3,9 +3,9 @@
     <div class="container">
       <!-- Header -->
       <div class="header">
-        <router-link :to="`/`">
+        <a @click="goBack">
           <img src="@/assets/logo.svg" alt="logo" class="logo">
-        </router-link>
+        </a>
       </div>
       <!-- Header end -->
 
@@ -26,9 +26,9 @@
         <div class="desc2">
           Hope you have bookmarked our website for future.
         </div>
-        <router-link :to="`/`" tag="button" class="white-btn">
+        <button class="white-btn" @click="goBack">
           Ok Cool!
-        </router-link>
+        </button>
         <br>
         <img src="@/assets/mouth.svg" alt="arrow" class="smile">
       </div>
@@ -45,6 +45,7 @@
         step2: false
       };
     },
+    props: ['goBack'],
     mounted() {
       document.documentElement.style.setProperty('--main-bg-color', '#000000');
       this.checkIfBookmarkShown();

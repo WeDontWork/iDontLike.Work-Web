@@ -1,69 +1,72 @@
 <template>
-  <div class="container">
+  <div>
+    <bookmark-view v-if="showBookmark" :goBack=goBack></bookmark-view>
 
-    <!-- Header -->
-    <div class="header">
-      <div>
-        <router-link :to="`/`">
-          <img src="@/assets/logo.svg" alt="logo" class="logo">
-        </router-link>
-      </div>
-      <div class="text-right">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdhkzp_cKi2lL_jSFrQ1TlTK_6LlE8APTdRbYt9yZrljkHsqA/viewform" target="_blank" class="link add-reason">
-          Got a creative reason ? Share with us !
-        </a>
-      </div>
-    </div>
-    <!-- Header end -->
-
-    <!-- Main content -->
-    <div class="main-content">
-      <div v-show="step1">
-        <div class="title1">
-          The ultimate productivity tool you have been waiting for is here!<br>Go Work From Home ;-)
-        </div>
-        <button class="white-btn" @click="showReasons">Show me a reason</button>
-      </div>
-      <div v-show="step2">
-        <div class="msg-box" v-clipboard:copy="reasons[random] && reasons[random].text" v-clipboard:success="onCopy">
-          <span id="msg">{{reasons[random] && reasons[random].text}}</span>
-        </div>
-        <div class="copy-text" v-clipboard:copy="reasons[random] && reasons[random].text" v-clipboard:success="onCopy">
-          <span v-if="copied">Copied!</span>
-          <span v-else>Click to copy text</span>
-        </div>
-        <button class="white-btn" @click="getNewReason">Show me another reason</button>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdhkzp_cKi2lL_jSFrQ1TlTK_6LlE8APTdRbYt9yZrljkHsqA/viewform" target="_blank" class="link add-reason2">Got a creative reason? Share with us !</a>
-      </div>
-    </div>
-    <!-- Main content end -->
-
-    <!-- Footer -->
-    <div class="footer">
-      <div class="left-content">
-        <div class="hd1">Also experience it on</div>
-        <div class="gass">
-          <a href="https://play.google.com/store/apps/details?id=work.idontlike.idontlikework" target="_blank">
-            <img src="@/assets/playstore.svg" alt="playstore" class="foo-logo">
+    <div class="container" v-if="showHome">
+      <!-- Header -->
+      <div class="header">
+        <div>
+          <a>
+            <img src="@/assets/logo.svg" alt="logo" class="logo">
           </a>
-          <img src="@/assets/assistance.svg" alt="gassistance" class="foo-logo ga-logo">
-          <div class="tooltip">
-            <img src="@/assets/assistance.svg" alt="gassistance" class="foo-logo">
-            <br>
-            Invoke Google Assistant on your phone or Google Home and try saying:<br><br>
-            "Ask I don’t like work"<br><br>
-            "Let me talk to I don’t like work"
+        </div>
+        <div class="text-right">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdhkzp_cKi2lL_jSFrQ1TlTK_6LlE8APTdRbYt9yZrljkHsqA/viewform" target="_blank" class="link add-reason">
+            Got a creative reason ? Share with us !
+          </a>
+        </div>
+      </div>
+      <!-- Header end -->
+
+      <!-- Main content -->
+      <div class="main-content">
+        <div v-show="step1">
+          <div class="title1">
+            The ultimate productivity tool you have been waiting for is here!<br>Go Work From Home ;-)
+          </div>
+          <button class="white-btn" @click="showReasons">Show me a reason</button>
+        </div>
+        <div v-show="step2">
+          <div class="msg-box" v-clipboard:copy="reasons[random] && reasons[random].text" v-clipboard:success="onCopy">
+            <span id="msg">{{reasons[random] && reasons[random].text}}</span>
+          </div>
+          <div class="copy-text" v-clipboard:copy="reasons[random] && reasons[random].text" v-clipboard:success="onCopy">
+            <span v-if="copied">Copied!</span>
+            <span v-else>Click to copy text</span>
+          </div>
+          <button class="white-btn" @click="getNewReason">Show me another reason</button>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdhkzp_cKi2lL_jSFrQ1TlTK_6LlE8APTdRbYt9yZrljkHsqA/viewform" target="_blank" class="link add-reason2">Got a creative reason? Share with us !</a>
+        </div>
+      </div>
+      <!-- Main content end -->
+
+      <!-- Footer -->
+      <div class="footer">
+        <div class="left-content">
+          <div class="hd1">Also experience it on</div>
+          <div class="gass">
+            <a href="https://play.google.com/store/apps/details?id=work.idontlike.idontlikework" target="_blank">
+              <img src="@/assets/playstore.svg" alt="playstore" class="foo-logo">
+            </a>
+            <img src="@/assets/assistance.svg" alt="gassistance" class="foo-logo ga-logo">
+            <div class="tooltip">
+              <img src="@/assets/assistance.svg" alt="gassistance" class="foo-logo">
+              <br>
+              Invoke Google Assistant on your phone or Google Home and try saying:<br><br>
+              "Ask I don’t like work"<br><br>
+              "Let me talk to I don’t like work"
+            </div>
           </div>
         </div>
+        <div></div>
+        <div class="right-content">
+          <div class="hd1">Share only with close friends</div>
+          <img src="@/assets/fb.svg" alt="playstore" class="foo-social" @click="socialFb()">
+          <img src="@/assets/tw.svg" alt="gassistance" class="foo-social" @click="socialTwitter()">
+        </div>
       </div>
-      <div></div>
-      <div class="right-content">
-        <div class="hd1">Share only with close friends</div>
-        <img src="@/assets/fb.svg" alt="playstore" class="foo-social" @click="socialFb()">
-        <img src="@/assets/tw.svg" alt="gassistance" class="foo-social" @click="socialTwitter()">
-      </div>
-    </div>
-    <!-- Footer end -->
+      <!-- Footer end -->
+  </div>
   </div>
 </template>
 
@@ -71,7 +74,8 @@
   import Vue from 'vue';
   import axios from 'axios';
   import VueClipboard from 'vue-clipboard2';
-  import router from '@/router';
+  import bookmarkView from '@/components/Bookmark.vue';
+  // import router from '@/router';
 
   Vue.use(VueClipboard);
 
@@ -86,7 +90,12 @@
         copied: false,
         step1: true,
         step2: false,
+        showHome: true,
+        showBookmark: false
       };
+    },
+    components: {
+      bookmarkView
     },
     async created() {
       try {
@@ -143,8 +152,15 @@
       },
       bookmarkListen(e) {
         if (e.clientY <= 0 || e.clientX <= 0 || (e.clientX >= window.innerWidth || e.clientY >= window.innerHeight)) {
-          router.push({ path: '/bookmark' });
+          // router.push({ path: '/bookmark' });
+          this.showHome = false;
+          this.showBookmark = true;
         }
+      },
+      goBack() {
+        this.showHome = true;
+        this.showBookmark = false;
+        this.setBgColor();
       },
       socialFb() {
         window.open(

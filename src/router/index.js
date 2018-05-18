@@ -15,10 +15,10 @@ export default new Router({
       name: 'Home',
       component: Home
     },
-    {
-      path: '/bookmark',
-      name: 'Bookmark',
-      component: Bookmark
-    }
+    // {
+    //   path: '/bookmark',
+    //   name: 'Bookmark',
+    //   component: Bookmark
+    // }
   ]
 })
