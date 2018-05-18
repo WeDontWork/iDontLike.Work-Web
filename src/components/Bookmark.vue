@@ -65,6 +65,5 @@
 </script>
 
 <style lang="scss">
-  @import './styles/home.scss';
   @import './styles/bookmark.scss';
 </style>
