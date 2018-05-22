@@ -3,6 +3,51 @@
     <bookmark-view v-if="showBookmark" :goBack=goBack></bookmark-view>
 
     <div class="container" v-if="showHome">
+      <a class="product-hunt" href="https://www.producthunt.com/posts/i-don-t-like-work" target="_blank">
+        We are on Product Hunt
+      </a>
+      <a href="https://www.producthunt.com/posts/i-don-t-like-work" target="_blank" class="kitty hidden-xs">
+        <img src="@/assets/kitty2.png" alt="kitty" class="kitty">
+      </a>
+      <div class="cannon hidden-xs">
+        <div class="cannon__path cannon__path--sm cannon__path--angle-2">
+          <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+          <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+          <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+          <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-1"></div>
+          <div class="cannon__confetti-spacer"></div>
+        </div>
+        <div class="cannon__path cannon__path--md cannon__path--angle-1">
+          <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+          <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-2"></div>
+          <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+          <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+          <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-4"></div>
+          <div class="cannon__confetti-spacer"></div>
+        </div>
+        <div class="cannon__path cannon__path--lg cannon__path--angle0">
+          <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+          <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-4"></div>
+          <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+          <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+          <div class="cannon__confetti-spacer"></div>
+        </div>
+        <div class="cannon__path cannon__path--md cannon__path--angle1">
+          <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+          <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+          <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-4"></div>
+          <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+          <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+          <div class="cannon__confetti-spacer"></div>
+        </div>
+        <div class="cannon__path cannon__path--sm cannon__path--angle2">
+          <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+          <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+          <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-4"></div>
+          <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+          <div class="cannon__confetti-spacer"></div>
+        </div>
+      </div>
       <!-- Header -->
       <div class="header">
         <div>
@@ -152,9 +197,10 @@
       },
       bookmarkListen(e) {
         if (e.clientY <= 0 || e.clientX <= 0 || (e.clientX >= window.innerWidth || e.clientY >= window.innerHeight)) {
-          // router.push({ path: '/bookmark' });
-          this.showHome = false;
-          this.showBookmark = true;
+          if (localStorage.getItem("showBookmark") == null) {
+            this.showHome = false;
+            this.showBookmark = true;
+          }
         }
       },
       goBack() {
