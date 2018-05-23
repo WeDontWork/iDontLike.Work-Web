@@ -242,7 +242,7 @@ $debug-animation-count: 1; // infinite | 1
     font-size: 10px;
     font-weight: 200;
     padding: 5px 40px;
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
     transform: rotate(40deg) translateY(-10px) translateX(55px);
