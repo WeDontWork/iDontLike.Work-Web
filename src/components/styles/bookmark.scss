@@ -61,6 +61,8 @@
   outline: none;
   padding: 12px 20px;
   transition: 0.17s all ease-in-out;
+  position: relative;
+  z-index: 5;
   &:active {
     box-shadow: inset 0px 0px 2px 0px #787878;
   }
@@ -155,3 +157,11 @@ $button-bg: #ffffff;
     background-size: 0% 0%, 0% 0%,  0% 0%,  0% 0%,  0% 0%,  0% 0%;
   }
 }
+
+// Particles
+#particles-js .particles-js-canvas-el {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+// Particles end

@@ -23,10 +23,16 @@
         <img src="@/assets/mouth.svg" alt="smile" class="smile">
       </div>
     </div>
+    <vue-particles color="#ffffff" shapeType="triangle" :clickEffect="false" :particleOpacity="0.4" :particlesNumber="120"></vue-particles>
   </div>
 </template>
 
 <script>
+  import Vue from 'vue';
+  import VueParticles from 'vue-particles';
+
+  Vue.use(VueParticles);
+
   export default {
     name: 'Bookmark',
     data() {
