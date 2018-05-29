@@ -125,17 +125,18 @@
     display: block;
   }
   .tooltip {
+    animation: slideUp 0.3s both;
     background: white;
     border-radius: 3px;
     bottom: 65px;
+    display: none;
     font-size: 15px;
     font-weight: 300;
     left: -85px;
     padding: 10px 10px 30px 10px;
     position: absolute;
-    width: 350px;
-    display: none;
     transition: 0.2s all ease-in-out;
+    width: 350px;
     &:after {
       top: 100%;
       left: 50%;
@@ -219,6 +220,16 @@
   }
 }
 
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  } 100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 $color-violet: #492684;
 $color-purple: #bea4ff;
@@ -226,8 +237,6 @@ $color-yellow: #feb535;
 $color-red: #ff6e83;
 $color-cyan: #58cafe;
 $animation-duration: 1.2s;
-
-/* debug */
 $debug-animation-count: 1; // infinite | 1
 
 .product-hunt {
@@ -261,6 +270,7 @@ $debug-animation-count: 1; // infinite | 1
     width: 130px;
     padding: 10px;
     cursor: pointer;
+    z-index: 2;
     &:hover {
       transform: rotate(0deg);
       left: -5px;
@@ -276,8 +286,8 @@ $debug-animation-count: 1; // infinite | 1
   display: none;
 	height: 70vh;
   width: 1px;
-  left: -7px;
-  top: -45px;
+  left: 7px;
+  top: -95px;
 	position: absolute;
 	transform-origin: 50% 100%;
   animation: cannon-explosion $animation-duration cubic-bezier(0.18, 0.89, 0.32, 1.28) both;
@@ -289,10 +299,10 @@ $debug-animation-count: 1; // infinite | 1
 			transform: scale(0);
 		}
 		80% {
-			opacity: 1;
+      opacity: 1;
 		}
 		100% {
-			opacity: 0;
+      opacity: 0;
 		}
 	}
 	
@@ -324,23 +334,23 @@ $debug-animation-count: 1; // infinite | 1
 		
 		&--angle {
 			&-2 {
-				transform: rotate(50deg);
+				transform: rotate(10deg);
 			}
 			
 			&-1 {
-				transform: rotate(12deg);
+				transform: rotate(25deg);
 			}
 			
 			&0 {
-				transform: rotate(30deg);
+				transform: rotate(40deg);
 			}
 			
 			&1 {
-				transform: rotate(20deg);
+				transform: rotate(55deg);
 			}
 			
 			&2 {
-				transform: rotate(40deg);
+				transform: rotate(70deg);
 			}
 		}
 	}
@@ -362,7 +372,7 @@ $debug-animation-count: 1; // infinite | 1
 				} 50% {
 					transform: rotate(2turn) scaleY(1.5);
 				} 100% {
-					transform: rotate(2.1turn) scaleY(1);
+					transform: rotate(2.1turn) scaleY(0.4);
 				}
 			}
 		}
@@ -376,7 +386,7 @@ $debug-animation-count: 1; // infinite | 1
 				} 50% {
 					transform: rotate(-2turn) scaleY(1.5);
 				} 100% {
-					transform: rotate(-2.1turn) scaleY(1);
+					transform: rotate(-2.1turn) scaleY(0.4);
 				}
 			}
 		}
