@@ -137,6 +137,7 @@
     position: absolute;
     transition: 0.2s all ease-in-out;
     width: 350px;
+    z-index: 50;
     &:after {
       top: 100%;
       left: 50%;
