@@ -80,7 +80,7 @@
             <span v-else>Click to copy text</span>
           </div>
           <button class="white-btn" @click="getNewReason">Show me another reason</button>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdhkzp_cKi2lL_jSFrQ1TlTK_6LlE8APTdRbYt9yZrljkHsqA/viewform" target="_blank" class="link add-reason2">Got a creative reason? Share with us !</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdhkzp_cKi2lL_jSFrQ1TlTK_6LlE8APTdRbYt9yZrljkHsqA/viewform" target="_blank"  rel="noopener" class="link add-reason2">Got a creative reason? Share with us !</a>
         </div>
       </div>
       <!-- Main content end -->
@@ -90,7 +90,7 @@
         <div class="left-content">
           <div class="hd1">Also experience it on</div>
           <div class="gass">
-            <a href="https://play.google.com/store/apps/details?id=work.idontlike.idontlikework" target="_blank">
+            <a href="https://play.google.com/store/apps/details?id=work.idontlike.idontlikework" target="_blank" rel="noopener">
               <img src="@/assets/playstore.svg" alt="playstore" class="foo-logo">
             </a>
             <img src="@/assets/assistance.svg" alt="gassistance" class="foo-logo ga-logo">
