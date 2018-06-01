@@ -52,5 +52,13 @@
       <%= htmlWebpackPlugin.options.serviceWorkerLoader %>
       <!-- built files will be auto injected -->
     </main>
+    <!-- Google Analytics -->
+    <script>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
+      ga('create', 'UA-118152977-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
   </body>
 </html>
