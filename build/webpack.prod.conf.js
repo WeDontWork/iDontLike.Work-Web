@@ -108,7 +108,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       runtimeCaching: [
         {
           urlPattern: /^https:\/\/s3.ap-south-1.amazonaws.com/,
-          handler: 'fastest',
+          handler: 'networkFirst',
           options: {
             cache: {
               maxEntries: 1000,
