@@ -1,20 +1,21 @@
-<h1 align="center">
-A WFH generator project built on Vue.js
-<br />
-<img src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg">
-</h1>
+# idlw
 
-[Check out the demo](http://ashwinshenoy.com/wfh)
+> A Vue.js project
 
 ## Build Setup
 
 ``` bash
 # install dependencies
-npm install / yarn
+npm install
 
 # serve with hot reload at localhost:8080
-npm run dev / yarn run dev
+npm run dev
 
 # build for production with minification
-npm run build / yarn run build
+npm run build
+
+# build for production and view the bundle analyzer report
+npm run build --report
 ```
+
+For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

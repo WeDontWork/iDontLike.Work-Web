@@ -3,10 +3,10 @@
     <bookmark-view v-if="showBookmark" :goBack=goBack></bookmark-view>
 
     <div class="container" v-if="showHome">
-      <a class="product-hunt" href="https://www.producthunt.com/posts/i-don-t-like-work" target="_blank">
+      <a class="product-hunt" href="https://www.producthunt.com/posts/i-don-t-like-work" target="_blank" rel="noopener">
         We are on Product Hunt
       </a>
-      <a href="https://www.producthunt.com/posts/i-don-t-like-work" target="_blank" class="kitty hidden-xs">
+      <a href="https://www.producthunt.com/posts/i-don-t-like-work" target="_blank" class="kitty hidden-xs" rel="noopener">
         <img src="@/assets/kitty2.png" alt="kitty" class="kitty">
       </a>
       <div class="cannon hidden-xs">
@@ -56,7 +56,7 @@
           </a>
         </div>
         <div class="text-right">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdhkzp_cKi2lL_jSFrQ1TlTK_6LlE8APTdRbYt9yZrljkHsqA/viewform" target="_blank" class="link add-reason">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdhkzp_cKi2lL_jSFrQ1TlTK_6LlE8APTdRbYt9yZrljkHsqA/viewform" target="_blank" class="link add-reason" rel="noopener">
             Got a creative reason ? Share with us !
           </a>
         </div>
@@ -119,7 +119,7 @@
   import Vue from 'vue';
   import axios from 'axios';
   import VueClipboard from 'vue-clipboard2';
-  import bookmarkView from '@/components/Bookmark.vue';
+  import bookmarkView from '@/components/Bookmark';
   // import router from '@/router';
 
   Vue.use(VueClipboard);
@@ -136,19 +136,19 @@
         step1: true,
         step2: false,
         showHome: true,
-        showBookmark: false
+        showBookmark: false,
       };
     },
     components: {
-      bookmarkView
+      bookmarkView,
     },
     async created() {
       try {
-        const response = await axios.get(`https://s3.ap-south-1.amazonaws.com/idontlikework/wfh-reasons.json`);
+        const response = await axios.get('https://s3.ap-south-1.amazonaws.com/idontlikework/wfh-reasons.json');
         this.reasons = this.shuffle(response.data);
         this.random = this.getRandomInt(1, this.reasons.length);
       } catch (e) {
-        console.log(e);
+        // console.log(e);
       }
       this.setBgColor();
     },
@@ -163,12 +163,20 @@
     },
     methods: {
       getNewReason() {
-        this.random == this.reasons.length - 1 ? (this.random = 0) : this.random++;
+        if (this.random === this.reasons.length - 1) {
+          this.random = 0;
+        } else {
+          this.random += 1;
+        }
         this.setBgColor();
         this.copied = false;
       },
       setBgColor() {
-        this.colorNumber == this.colorList.length - 1 ? (this.colorNumber = 0) : this.colorNumber++;
+        if (this.colorNumber === this.colorList.length - 1) {
+          this.colorNumber = 0;
+        } else {
+          this.colorNumber += 1;
+        }
         document.documentElement.style.setProperty('--main-bg-color', this.colorList[this.colorNumber]);
       },
       onCopy() {
@@ -183,21 +191,23 @@
         return Math.floor(Math.random() * (max - min)) + min;
       },
       shuffle(array) {
-        let currentIndex = array.length,
-            temporaryValue,
-            randomIndex;
-        while (0 !== currentIndex) {
+        let currentIndex = array.length;
+        let temporaryValue;
+        let randomIndex;
+        while (currentIndex !== 0) {
           randomIndex = Math.floor(Math.random() * currentIndex);
           currentIndex -= 1;
           temporaryValue = array[currentIndex];
+          /* eslint no-param-reassign: off */
           array[currentIndex] = array[randomIndex];
           array[randomIndex] = temporaryValue;
         }
         return array;
       },
       bookmarkListen(e) {
-        if (e.clientY <= 0 || e.clientX <= 0 || (e.clientX >= window.innerWidth || e.clientY >= window.innerHeight)) {
-          if (localStorage.getItem("showBookmark") == null) {
+        const windowsize = e.clientX >= window.innerWidth || e.clientY >= window.innerHeight;
+        if (e.clientY <= 0 || e.clientX <= 0 || windowsize) {
+          if (localStorage.getItem('showBookmark') == null) {
             this.showHome = false;
             this.showBookmark = true;
           }
@@ -212,14 +222,14 @@
         window.open(
           'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fidontlike.work%2F',
           'yyyyy',
-          'width=500,height=500,resizable=no,toolbar=no,menubar=no,location=no,status=no'
+          'width=500,height=500,resizable=no,toolbar=no,menubar=no,location=no,status=no',
         );
       },
       socialTwitter() {
         window.open(
           'http://twitter.com/share?text=Check out the awesome Work From Home Reason Generator&url=https://idontlike.work',
           'yyyyy',
-          'width=500,height=500,resizable=no,toolbar=no,menubar=no,location=no,status=no'
+          'width=500,height=500,resizable=no,toolbar=no,menubar=no,location=no,status=no',
         );
       },
     },
