@@ -1,5 +1,5 @@
 <template>
-  <div class="error-container">
+  <error-container>
     <div class="text-right">
       <img src="@/assets/octo.svg" alt="octopussy">
     </div>
@@ -12,24 +12,13 @@
       </div>
       <router-link :to="`/`" tag="button" class="orange-btn">Home</router-link>
     </div>
-  </div>
+  </error-container>
 </template>
+
 <script>
-  export default {
-    name: 'NotFoundComponent',
-    mounted() {
-      document.documentElement.style.setProperty('--main-bg-color', '#ffffff');
-    },
-  };
-</script>
-<style lang="scss">
-  .text-center {
-    text-align: center;
-  }
-  .text-right {
-    text-align: right;
-  }
-  .error-container {
+  import styled from 'vue-styled-components';
+
+  const ErrorContainer = styled.div`
     display: grid;
     grid-template-columns: 70fr 100fr;
     align-items: center;
@@ -69,5 +58,23 @@
         box-shadow: 0 1px 4px 0 rgba(0,0,0,.3);
       }
     }
-  }
-</style>
+
+    .text-center {
+      text-align: center;
+    }
+
+    .text-right {
+      text-align: right;
+    }
+  `;
+
+  export default {
+    name: 'NotFoundComponent',
+    components: {
+      'error-container': ErrorContainer,
+    },
+    mounted() {
+      document.documentElement.style.setProperty('--main-bg-color', '#ffffff');
+    },
+  };
+</script>

@@ -3,6 +3,7 @@
     <bookmark-view v-if="showBookmark" :goBack=goBack></bookmark-view>
 
     <div class="container" v-if="showHome">
+      <!-- Product Hunt link -->
       <a class="product-hunt" href="https://www.producthunt.com/posts/i-don-t-like-work" target="_blank" rel="noopener">
         We are on Product Hunt
       </a>
@@ -48,6 +49,7 @@
           <div class="cannon__confetti-spacer"></div>
         </div>
       </div>
+
       <!-- Header -->
       <div class="header">
         <div>
@@ -111,7 +113,7 @@
         </div>
       </div>
       <!-- Footer end -->
-  </div>
+    </div>
   </div>
 </template>
 
@@ -119,13 +121,15 @@
   import Vue from 'vue';
   import axios from 'axios';
   import VueClipboard from 'vue-clipboard2';
-  import bookmarkView from '@/components/Bookmark';
   // import router from '@/router';
+
+  const bookmarkView = () => import(/* webpackChunkName: "bookmark" */ '@/components/Bookmark');
 
   Vue.use(VueClipboard);
 
   export default {
     name: 'Home',
+
     data() {
       return {
         reasons: [],
@@ -139,9 +143,11 @@
         showBookmark: false,
       };
     },
+
     components: {
       bookmarkView,
     },
+
     async created() {
       try {
         const response = await axios.get('https://s3.ap-south-1.amazonaws.com/idontlikework/wfh-reasons.json');
@@ -152,15 +158,19 @@
       }
       this.setBgColor();
     },
+
     beforeMount() {
       document.addEventListener('mouseout', this.bookmarkListen);
     },
+
     mounted() {
       this.colorList = this.shuffle(this.colorList);
     },
+
     beforeDestroy() {
       document.removeEventListener('mouseout', this.bookmarkListen);
     },
+
     methods: {
       getNewReason() {
         if (this.random === this.reasons.length - 1) {

@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-// Components imports
-import Home from '@/components/Home';
-import NotFoundComponent from '@/components/NotFoundComponent';
-// import Bookmark from '@/components/Bookmark';
+// Components Import (async)
+const Home = () => import(/* webpackChunkName: "Home" */ '@/components/Home');
+const NotFoundComponent = () => import(/* webpackChunkName: "Not-Found" */ '@/components/NotFoundComponent');
+
 
 Vue.use(Router);
 
@@ -20,10 +20,5 @@ export default new Router({
       path: '*',
       component: NotFoundComponent,
     },
-    // {
-    //   path: '/bookmark',
-    //   name: 'Bookmark',
-    //   component: Bookmark
-    // }
   ],
 });

@@ -1,8 +1,8 @@
 {
   "name": "idlw",
   "version": "1.0.0",
-  "description": "A Vue.js project",
-  "author": "ashwinkshenoy",
+  "description": "I dont like work",
+  "author": "@ashwinkshenoy",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -17,7 +17,8 @@
     "vue": "^2.5.2",
     "vue-clipboard2": "^0.1.1",
     "vue-particles": "^1.0.9",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vue-styled-components": "^1.4.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.5",
