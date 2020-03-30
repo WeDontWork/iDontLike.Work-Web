@@ -95,6 +95,9 @@
             <a href="https://play.google.com/store/apps/details?id=work.idontlike.idontlikework" target="_blank" rel="noopener">
               <img src="@/assets/playstore.svg" alt="playstore" class="foo-logo">
             </a>
+            <a href="https://apps.apple.com/in/app/i-dont-like-work/id1502476112" target="_blank" rel="noopener">
+              <img src="@/assets/apple.svg" alt="applestore" class="foo-logo">
+            </a>
             <img src="@/assets/assistance.svg" alt="gassistance" class="foo-logo ga-logo">
             <div class="tooltip">
               <img src="@/assets/assistance.svg" alt="gassistance" class="foo-logo">

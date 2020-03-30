@@ -1,4 +1,8 @@
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .header {
   display: grid;
   grid-template-columns: auto auto;
@@ -162,6 +166,13 @@
 }
 
 @media screen and (max-width: 768px) {
+  .container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+  }
   .add-reason {
     display: none;
   }
@@ -169,7 +180,8 @@
     justify-content: center;
   }
   .main-content {
-    margin-top: 15%;
+    // margin: 15% 0;
+    width: 100%;
     .msg-box {
       max-width: 100%;
       display: flex;
@@ -190,10 +202,10 @@
   }
   .footer {
     grid-template-columns: auto auto auto;
-    margin-top: 30px;
     width: 100%;
     left: 0;
     position: static;
+    margin: 20px;
     .left-content {
       .hd1 {
         font-size: 12px;
